@@ -72,7 +72,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5 }}
           className="hero-button"
-          onClick={() => scrollTo('servicios')}
+          onClick={() => scrollTo('servicios-final')}
         >
           Ver Servicios
         </motion.button>
@@ -90,7 +90,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.7 }}
           className="hero-button"
-          onClick={() => scrollTo('nosotros')}
+          onClick={() => scrollTo('mision')}
         >
           Quiénes Somos
         </motion.button>
@@ -100,7 +100,7 @@ const Hero = () => {
 };
 
 const AboutSection = () => (
-  <section id="nosotros" className="py-24 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
+  <section id="mision" className="py-24 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
       <div className="flex flex-col justify-center text-center md:text-left">
         <h2 className="text-3xl md:text-4xl font-black mb-8 font-display tracking-[-0.05em] leading-tight uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 self-center md:self-start">AURORA SERVICES</h2>
@@ -367,7 +367,7 @@ const RequirementsSection = () => {
   ];
 
   return (
-    <section id="requirements" className="py-20 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
+    <section id="material" className="py-20 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-black mb-16 font-display tracking-tight text-center uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 mx-auto">Material necesario</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -429,7 +429,7 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
+    <section id="trabajo" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl md:text-5xl font-black mb-16 md:mb-20 font-display tracking-tight text-center uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 mx-auto">¿Cómo Trabajamos?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
@@ -517,7 +517,7 @@ const ContactSection = () => {
 };
 
 const ServicesFooter = () => (
-  <section id="servicios" className="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100 overflow-hidden">
+  <section id="servicios-final" className="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100 overflow-hidden">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
       <div className="flex flex-col gap-4">
         <h3 className="text-xl font-black uppercase tracking-tight font-display inline-block border-b-2 border-doodles-pink pb-0.5 px-0 mx-auto md:mx-0 self-center md:self-start">Desarrollo Web</h3>
@@ -542,75 +542,56 @@ const ServicesFooter = () => (
 );
 
 const ArrowNav = () => {
-  const sections = ["hero", "nosotros", "precios", "requirements", "process", "contacto"];
-  
-  const scrollToNext = () => {
-    const scrollPosition = window.scrollY + 100;
-    let nextSectionId = sections[0];
-    
-    for (let i = 0; i < sections.length; i++) {
-      const element = document.getElementById(sections[i]);
-      if (element) {
-        const { offsetTop, offsetHeight } = element;
-        // If we are currently in this section
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          if (i < sections.length - 1) {
-            nextSectionId = sections[i + 1];
-          } else {
-            nextSectionId = sections[i];
-          }
-          break;
-        }
-      }
-    }
-    
-    const nextElement = document.getElementById(nextSectionId);
-    if (nextElement) {
-      nextElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const sections = ["hero", "mision", "precios", "material", "trabajo", "contacto", "servicios-final"];
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  const scrollToPrev = () => {
-    const scrollPosition = window.scrollY + 100;
-    let prevSectionId = sections[0];
-    
-    for (let i = 0; i < sections.length; i++) {
-      const element = document.getElementById(sections[i]);
-      if (element) {
-        const { offsetTop, offsetHeight } = element;
-        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-          if (i > 0) {
-            prevSectionId = sections[i - 1];
-          } else {
-            prevSectionId = sections[0];
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+      for (let i = 0; i < sections.length; i++) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setCurrentSectionIndex(i);
+            break;
           }
-          break;
         }
       }
-    }
-    
-    const prevElement = document.getElementById(prevSectionId);
-    if (prevElement) {
-      prevElement.scrollIntoView({ behavior: "smooth" });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (index: number) => {
+    const element = document.getElementById(sections[index]);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   return (
-    <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
-      <button 
-        onClick={scrollToPrev}
-        className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
-        aria-label="Subir"
-      >
-        <ArrowUp size={32} strokeWidth={3} />
-      </button>
-      <button 
-        onClick={scrollToNext}
-        className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
-        aria-label="Bajar"
-      >
-        <ArrowDown size={32} strokeWidth={3} />
-      </button>
+    <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 items-center">
+      {currentSectionIndex > 0 && (
+        <button 
+          onClick={() => scrollToSection(currentSectionIndex - 1)}
+          className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
+          aria-label="Subir"
+        >
+          <ArrowUp size={32} strokeWidth={2} />
+        </button>
+      )}
+      {currentSectionIndex < sections.length - 1 && (
+        <button 
+          onClick={() => scrollToSection(currentSectionIndex + 1)}
+          className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
+          aria-label="Bajar"
+        >
+          <ArrowDown size={32} strokeWidth={2} />
+        </button>
+      )}
     </div>
   );
 };
