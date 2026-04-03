@@ -182,11 +182,11 @@ const PricingSection = () => {
       title: "MANTENIMIENTO — Servicio mensual",
       isMaintenance: true,
       prices: [
-        { label: "Landing", price: "$50.000 ARS / 35 USD" },
-        { label: "Multipágina", price: "$90.000 ARS / 65 USD" },
-        { label: "E-commerce", price: "$150.000 ARS / 105 USD" },
-        { label: "Gestión", price: "$130.000 ARS / 92 USD" },
-        { label: "Stock", price: "$140.000 / 100 USD" }
+        { label: "Landing", price: "$50.000 ARS 35 USD" },
+        { label: "Multipágina", price: "$90.000 ARS 65 USD" },
+        { label: "E-commerce", price: "$150.000 ARS 105 USD" },
+        { label: "Gestión", price: "$130.000 ARS 92 USD" },
+        { label: "Stock", price: "$140.000 100 USD" }
       ],
       includes: ["Actualizaciones periódicas", "Copias de seguridad", "Seguridad y protección", "Correcciones de errores", "Soporte técnico", "4 horas de consultas a la semana"],
       quote: "Tu presencia digital merece atención constante. Con nuestro plan mensual garantizamos que tu sitio web siempre refleje la calidad y profesionalismo que tu marca merece.",
