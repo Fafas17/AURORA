@@ -22,7 +22,7 @@ const WhatsAppIcon = ({ size = 18, className = "" }: { size?: number; className?
 );
 
 const Navbar = () => (
-  <nav className="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-end py-6 text-white">
+  <nav className="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-end py-6 px-6 md:px-12 text-white">
     <div className="flex items-center space-x-8">
       <Instagram size={18} className="cursor-pointer text-[#E1306C] hover:brightness-125 transition-all" />
       <WhatsAppIcon size={18} className="cursor-pointer text-[#25D366] hover:brightness-125 transition-all" />
@@ -40,12 +40,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" className="hero-section overflow-hidden">
       <motion.h1 
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="hero-title"
+        className="hero-title break-words px-4"
       >
         AURORA SERVICES
       </motion.h1>
@@ -100,11 +100,11 @@ const Hero = () => {
 };
 
 const AboutSection = () => (
-  <section id="nosotros" className="py-24 px-12 bg-[#0a0a0a] text-white">
-    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-      <div className="flex flex-col justify-center">
-        <h2 className="text-4xl font-black mb-8 font-display tracking-[-0.05em] leading-tight uppercase">AURORA SERVICES</h2>
-        <p className="about-text text-xl text-gray-300 max-w-xl font-medium">
+  <section id="nosotros" className="py-24 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="flex flex-col justify-center text-center md:text-left">
+        <h2 className="text-3xl md:text-4xl font-black mb-8 font-display tracking-[-0.05em] leading-tight uppercase break-words">AURORA SERVICES</h2>
+        <p className="about-text text-lg md:text-xl text-gray-300 max-w-xl font-medium mx-auto md:mx-0">
           Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras. Con presencia en Argentina, México, Ecuador y Perú, nuestro equipo combina talento y perseverancia, transformando cada proyecto en una experiencia digital única donde la tecnología y la calidez se encuentran para impulsar tu éxito.
         </p>
       </div>
@@ -128,47 +128,55 @@ const PricingSection = () => {
     { id: 0, label: "LANDING PAGE", icon: <Monitor size={18} /> },
     { id: 1, label: "MULTIPÁGINA", icon: <Folder size={18} /> },
     { id: 2, label: "PERSONALIZADO", icon: <Settings size={18} /> },
-    { id: 3, label: "MANTENIMIENTO", icon: <Wrench size={18} /> },
+    { id: 3, label: "MANTENIMIENTO" },
   ];
 
   const content = [
     {
       title: "LANDING PAGE",
-      price: "$155.000 ARS / $110 USD",
-      maintenance: "$50.000 ARS/mes / $35 USD",
-      includes: ["Diseño personalizado", "Adaptable a celular/tablet", "Formulario de contacto", "Botón de WhatsApp", "Galería de imágenes", "Integración con Redes", "Google Maps", "Hasta 7 secciones"],
-      quote: "Una Landing Page es una página de una sola pantalla con scroll, elegante y efectiva, diseñada específicamente para convertir visitantes en clientes.",
-      buttonText: "Contratar Plan"
+      price: "Desde $150.000 ARS / $110 USD",
+      maintenance: "$50.000 ARS/mes / $35 USD/mes",
+      includes: ["Diseño personalizado", "Adaptada a celular y tablet", "Formulario de contacto", "Integración con WhatsApp", "Galería de imágenes", "Integración de redes sociales", "Google Maps", "Hasta 7 secciones"],
+      quote: "Una Landing Page es una página de una sola pantalla con scroll, elegante y efectiva, que presenta tu marca, producto o servicio de forma clara y directa. Diseñada para captar la atención del visitante.",
+      buttonText: "Contratar Plan",
+      whatsappLink: "https://wa.me/5492665139985?text=Hola%20Aurora%20Services!%20Me%20interesa%20contratar%20el%20plan%20Landing%20Page%20para%20mi%20proyecto."
     },
     {
       title: "MULTIPÁGINA",
-      price: "$280.000 ARS / $200 USD",
-      maintenance: "$90.000 ARS/mes / $65 USD",
-      includes: ["Múltiples páginas", "Menú de navegación completo", "Hasta 15 secciones", "Diseño responsivo premium", "SEO optimizado", "Blog o sección de noticias", "Formularios avanzados"],
-      quote: "Una web completa con varias páginas para mostrar todo lo que ofrece tu negocio de manera organizada y profesional.",
-      buttonText: "Contratar Plan"
+      price: "Desde $250.000 ARS / $180 USD",
+      maintenance: "$90.000 ARS/mes / $65 USD/mes",
+      includes: ["Diseño personalizado", "Adaptada a celular y tablet", "Formulario de contacto", "Integración con WhatsApp", "Galería de imágenes", "Integración de redes sociales", "Google Maps", "Múltiples páginas y secciones", "Menú de navegación completo", "Hasta 15 secciones"],
+      quote: "Una web completa con varias páginas para mostrar todo lo que ofrece tu negocio de forma organizada y profesional. Ideal para empresas que necesitan más espacio para comunicar su propuesta.",
+      buttonText: "Contratar Plan",
+      whatsappLink: "https://wa.me/5492665139985?text=Hola%20Aurora%20Services!%20Me%20interesa%20el%20plan%20Multip%C3%A1gina%20para%20llevar%20mi%20web%20al%20siguiente%20nivel."
     },
     {
       title: "PROYECTOS PERSONALIZADOS",
       isCustom: true,
       blocks: [
         {
-          title: "🛍️ Tienda online",
-          price: "Desde $700k ARS / $500 USD",
-          includes: ["Carrito de compras", "Pasarela de pagos", "Gestión de productos", "Control de pedidos"]
+          title: "🛍️ Tienda online (e-commerce)",
+          price: "Desde $700.000 ARS / $500 USD",
+          maintenance: "Desde $150.000 ARS/mes / $105 USD/mes",
+          includes: ["Diseño personalizado", "Adaptada a celular y tablet", "Catálogo de productos", "Carrito de compras", "Link de pago vía MercadoPago / PayPal", "Gestión de pedidos", "Integración con WhatsApp", "Redes sociales", "Google Maps", "Formulario de contacto", "Hasta 15 secciones"]
         },
         {
-          title: "📋 Web administración",
-          price: "Desde $480k ARS / $340 USD",
-          includes: ["Panel de control", "Gestión de datos", "Usuarios y roles", "Base de datos"]
+          title: "📋 Web de administración de tareas",
+          price: "Desde $480.000 ARS / $340 USD",
+          maintenance: "Desde $130.000 ARS/mes / $92 USD/mes",
+          includes: ["Diseño personalizado", "Adaptada a celular y tablet", "Panel de gestión embebido", "Integración con Airtable o Notion", "Gestión de tareas y usuarios", "Integración con WhatsApp", "Acceso desde cualquier dispositivo"],
+          description: "Una solución práctica para gestionar tareas y equipos, integrada con herramientas externas como Airtable o Notion. Tu cliente accede a un panel organizado y fácil de usar, embebido dentro de su página web."
         },
         {
-          title: "📊 Sistema de stock",
-          price: "Desde $500k ARS / $355 USD",
-          includes: ["Control de inventario", "Alertas de stock", "Reportes detallados", "Multi-sucursal"]
+          title: "📊 Sistema de stock/inventario",
+          price: "Desde $500.000 ARS / $355 USD",
+          maintenance: "Desde $140.000 ARS/mes / $100 USD/mes",
+          includes: ["Diseño personalizado", "Adaptada a celular y tablet", "Panel de inventario embebido", "Integración con Airtable o Google Sheets", "Control de entradas y salidas", "Reportes y estadísticas", "Integración con WhatsApp", "Acceso desde cualquier dispositivo"],
+          description: "Un sistema para controlar tu inventario en tiempo real, integrado con herramientas externas como Airtable o Google Sheets. Registrá entradas, salidas y consultá tu stock desde cualquier dispositivo de forma simple y ordenada."
         }
       ],
-      buttonText: "Contratar Plan"
+      buttonText: "Contratar Plan",
+      whatsappLink: "https://wa.me/5492665139985?text=Hola%20Aurora%20Services!%20Necesito%20un%20presupuesto%20personalizado%20para%20un%20proyecto%20especial."
     },
     {
       title: "MANTENIMIENTO — Servicio mensual",
@@ -180,24 +188,25 @@ const PricingSection = () => {
         { label: "Gestión", price: "$130k" },
         { label: "Stock", price: "$140k" }
       ],
-      includes: ["Soporte técnico prioritario", "Actualizaciones de seguridad", "Backups semanales", "Optimización de velocidad"],
-      quote: "Tu sitio web necesita atención constante para mantenerse seguro, rápido y funcional. Nuestra presencia digital impecable garantiza tu tranquilidad.",
-      buttonText: "Consultar"
+      includes: ["Actualizaciones periódicas", "Copias de seguridad", "Seguridad y protección", "Correcciones de errores", "Soporte técnico", "4 horas de consultas a la semana"],
+      quote: "Tu presencia digital merece atención constante. Con nuestro plan mensual garantizamos que tu sitio web siempre refleje la calidad y profesionalismo que tu marca merece.",
+      buttonText: "Consultar",
+      whatsappLink: "https://wa.me/5492665139985?text=Hola%20Aurora%20Services!%20Quisiera%20consultar%20por%20el%20servicio%20de%20mantenimiento%20mensual."
     }
   ];
 
   return (
-    <section id="precios" className="py-24 px-12 bg-white min-h-[800px] flex flex-col items-center">
-      <h2 className="text-4xl font-black mb-16 font-display tracking-tight text-center">PLANES Y PRECIOS</h2>
+    <section id="precios" className="py-24 px-6 md:px-12 bg-white min-h-[800px] flex flex-col items-center overflow-hidden">
+      <h2 className="text-3xl md:text-4xl font-black mb-12 md:mb-16 font-display tracking-tight text-center break-words px-4">PLANES Y PRECIOS</h2>
       
-      <div className="w-full max-w-5xl">
+      <div className="w-full max-w-5xl mx-auto px-2 md:px-0">
         {/* Tabs Selector */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 bg-doodles-pink text-white border-2 ${
+              className={`flex items-center gap-2 px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-150 bg-doodles-pink text-white border-2 ${
                 activeTab === tab.id 
                   ? "shadow-[0_0_30px_rgba(255,0,127,0.8)] scale-110 border-white" 
                   : "border-transparent hover:scale-105"
@@ -212,19 +221,22 @@ const PricingSection = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-            className="bg-gray-50 rounded-[40px] p-12 md:p-20 shadow-sm border border-gray-100"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="bg-gray-50 rounded-[30px] md:rounded-[40px] p-6 md:p-20 shadow-sm border border-gray-100 w-full max-w-[95vw] md:max-w-full mx-auto"
           >
             {content[activeTab].isCustom ? (
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {content[activeTab].blocks?.map((block, i) => (
-                  <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
+                  <div key={i} className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col w-full">
                     <h3 className="text-xl font-black mb-4">{block.title}</h3>
-                    <div className="text-doodles-pink font-black text-lg mb-6">{block.price}</div>
-                    <ul className="space-y-3 mb-8 flex-grow">
+                    <div className="text-doodles-pink font-black text-lg mb-1">{block.price}</div>
+                    {block.maintenance && (
+                      <div className="text-[10px] font-bold text-gray-400 mb-6">Mantenimiento: {block.maintenance}</div>
+                    )}
+                    <ul className="space-y-3 mb-6">
                       {block.includes.map((item, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
                           <Check size={16} className="text-doodles-pink mt-0.5 shrink-0" />
@@ -232,67 +244,107 @@ const PricingSection = () => {
                         </li>
                       ))}
                     </ul>
-                    <button className="w-full py-4 rounded-full bg-doodles-pink text-white text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none">
-                      {content[activeTab].buttonText}
-                    </button>
+                    {block.description && (
+                      <p className="text-xs text-gray-500 italic mb-8 leading-relaxed">
+                        {block.description}
+                      </p>
+                    )}
+                    <div className="mt-auto">
+                      <a 
+                        href={content[activeTab].whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-4 rounded-full bg-doodles-pink text-white text-[10px] font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none flex items-center justify-center gap-2"
+                      >
+                        <WhatsAppIcon size={14} />
+                        {content[activeTab].buttonText}
+                      </a>
+                    </div>
                   </div>
                 ))}
               </div>
             ) : content[activeTab].isMaintenance ? (
-              <div className="flex flex-col md:flex-row gap-16 items-center">
-                <div className="flex-1">
-                  <h3 className="text-5xl font-black mb-8 uppercase tracking-tighter">{content[activeTab].title}</h3>
-                  <div className="grid grid-cols-2 gap-4 mb-10">
-                    {content[activeTab].prices?.map((p, i) => (
-                      <div key={i} className="bg-white p-4 rounded-2xl border border-gray-100">
-                        <div className="text-[10px] font-black text-gray-400 uppercase mb-1">{p.label}</div>
-                        <div className="text-lg font-black text-doodles-pink">{p.price}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-gray-500 italic mb-8 leading-relaxed text-lg">"{content[activeTab].quote}"</p>
-                  <button className="px-12 py-5 rounded-full bg-doodles-pink text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none">
-                    {content[activeTab].buttonText}
-                  </button>
+              <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+                <h3 className="text-3xl md:text-5xl font-black mb-8 md:mb-10 uppercase tracking-tighter break-words">
+                  {content[activeTab].title}
+                </h3>
+                
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-10 w-full">
+                  {content[activeTab].prices?.map((p, i) => (
+                    <div key={i} className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                      <div className="text-[10px] font-black text-gray-400 uppercase mb-1">{p.label}</div>
+                      <div className="text-lg font-black text-doodles-pink">{p.price}</div>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex-1 bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 w-full">
-                  <h4 className="font-black text-xs uppercase tracking-widest mb-6 text-gray-400">Incluye:</h4>
-                  <ul className="space-y-4">
+
+                <p className="text-gray-500 italic mb-10 leading-relaxed text-lg max-w-2xl">
+                  "{content[activeTab].quote}"
+                </p>
+
+                <div className="bg-white p-8 md:p-10 rounded-[32px] shadow-sm border border-gray-100 w-full mb-10">
+                  <p className="text-sm md:text-base font-medium text-gray-700 leading-relaxed text-center">
+                    <span className="font-black text-xs uppercase tracking-widest text-gray-400 mr-2">Incluye:</span>
                     {content[activeTab].includes.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 font-medium text-gray-700">
-                        <div className="w-6 h-6 rounded-full bg-doodles-pink flex items-center justify-center">
-                          <Check size={14} className="text-white" />
-                        </div>
+                      <span key={i}>
                         {item}
-                      </li>
+                        {i < content[activeTab].includes.length - 1 && (
+                          <span className="text-doodles-pink font-black mx-2">·</span>
+                        )}
+                      </span>
                     ))}
-                  </ul>
+                  </p>
                 </div>
+
+                <a 
+                  href={content[activeTab].whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-12 py-5 rounded-full bg-doodles-pink text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none"
+                >
+                  <WhatsAppIcon size={18} />
+                  {content[activeTab].buttonText}
+                </a>
               </div>
             ) : (
-              <div className="flex flex-col md:flex-row gap-16 items-center">
-                <div className="flex-1">
-                  <h3 className="text-5xl font-black mb-4 uppercase tracking-tighter">{content[activeTab].title}</h3>
-                  <div className="text-3xl font-black text-doodles-pink mb-2">{content[activeTab].price}</div>
-                  <div className="text-sm font-bold text-gray-400 mb-8">Mantenimiento: {content[activeTab].maintenance}</div>
-                  <p className="text-gray-500 italic mb-10 leading-relaxed text-lg">"{content[activeTab].quote}"</p>
-                  <button className="px-12 py-5 rounded-full bg-doodles-pink text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none">
-                    {content[activeTab].buttonText}
-                  </button>
+              <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+                <h3 className="text-3xl md:text-5xl font-black mb-4 uppercase tracking-tighter break-words">
+                  {content[activeTab].title}
+                </h3>
+                <div className="text-2xl md:text-4xl font-black text-doodles-pink mb-2">
+                  {content[activeTab].price}
                 </div>
-                <div className="flex-1 bg-white p-10 rounded-[32px] shadow-sm border border-gray-100 w-full">
-                  <h4 className="font-black text-xs uppercase tracking-widest mb-6 text-gray-400">Incluye:</h4>
-                  <ul className="space-y-4">
+                <div className="text-xs md:text-sm font-bold text-gray-400 mb-8">
+                  Mantenimiento: {content[activeTab].maintenance}
+                </div>
+                
+                <p className="text-base md:text-lg text-gray-500 italic mb-10 leading-relaxed max-w-2xl">
+                  "{content[activeTab].quote}"
+                </p>
+
+                <div className="bg-white p-8 md:p-10 rounded-[32px] shadow-sm border border-gray-100 w-full mb-10">
+                  <p className="text-sm md:text-base font-medium text-gray-700 leading-relaxed text-center">
+                    <span className="font-black text-xs uppercase tracking-widest text-gray-400 mr-2">Incluye:</span>
                     {content[activeTab].includes.map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 font-medium text-gray-700">
-                        <div className="w-6 h-6 rounded-full bg-doodles-pink flex items-center justify-center">
-                          <Check size={14} className="text-white" />
-                        </div>
+                      <span key={i}>
                         {item}
-                      </li>
+                        {i < content[activeTab].includes.length - 1 && (
+                          <span className="text-doodles-pink font-black mx-2">·</span>
+                        )}
+                      </span>
                     ))}
-                  </ul>
+                  </p>
                 </div>
+
+                <a 
+                  href={content[activeTab].whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-12 py-5 rounded-full bg-doodles-pink text-white text-xs font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/40 border-none"
+                >
+                  <WhatsAppIcon size={18} />
+                  {content[activeTab].buttonText}
+                </a>
               </div>
             )}
           </motion.div>
@@ -315,9 +367,9 @@ const RequirementsSection = () => {
   ];
 
   return (
-    <section id="requirements" className="py-20 px-12 bg-[#0a0a0a] text-white">
+    <section id="requirements" className="py-20 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-black mb-16 font-display tracking-tight text-center uppercase">Material necesario</h2>
+        <h2 className="text-3xl md:text-4xl font-black mb-16 font-display tracking-tight text-center uppercase break-words">Material necesario</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {items.map((item, i) => (
             <motion.div
@@ -377,9 +429,9 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="py-[100px] px-12 bg-[#0a0a0a] text-white">
+    <section id="process" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-5xl font-black mb-20 font-display tracking-tight text-center uppercase">¿Cómo Trabajamos?</h2>
+        <h2 className="text-3xl md:text-5xl font-black mb-16 md:mb-20 font-display tracking-tight text-center uppercase break-words">¿Cómo Trabajamos?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {steps.map((step, i) => (
             <motion.div
@@ -416,11 +468,11 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contacto" className="py-[100px] px-12 bg-[#0a0a0a] text-white">
+    <section id="contacto" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-black mb-6 font-display tracking-tight uppercase">Contacto</h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+          <h2 className="text-3xl md:text-5xl font-black mb-6 font-display tracking-tight uppercase break-words">Contacto</h2>
+          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed px-4">
             ¿Tenés un proyecto en mente? Contanos tu idea y juntos la convertimos en una experiencia digital de alto nivel.
           </p>
         </div>
@@ -465,8 +517,8 @@ const ContactSection = () => {
 };
 
 const ServicesFooter = () => (
-  <section id="servicios" className="py-24 px-12 bg-gray-50 border-t border-gray-100">
-    <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+  <section id="servicios" className="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100 overflow-hidden">
+    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
       <div className="flex flex-col gap-4">
         <h3 className="text-xl font-black uppercase tracking-tight font-display">Desarrollo Web</h3>
         <p className="text-gray-500 leading-relaxed text-sm">
@@ -526,7 +578,7 @@ const FloatingNav = () => {
   };
 
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6">
+    <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col gap-6">
       {sections.map((section) => (
         <button
           key={section.id}
@@ -551,7 +603,7 @@ const FloatingNav = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden max-w-full">
       <FloatingNav />
       <Navbar />
       <Hero />
@@ -562,7 +614,7 @@ export default function App() {
       <ContactSection />
       <ServicesFooter />
       
-      <footer className="py-16 px-12 bg-[#0a0a0a] text-white flex flex-col items-center gap-8 border-t border-white/5">
+      <footer className="py-16 px-6 md:px-12 bg-[#0a0a0a] text-white flex flex-col items-center gap-8 border-t border-white/5">
         <div className="text-2xl font-black font-display tracking-[-0.08em]">AURORA</div>
         <div className="flex items-center space-x-6">
           <Instagram size={18} className="text-[#E1306C] hover:brightness-125 transition-all cursor-pointer" />
