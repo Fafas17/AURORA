@@ -24,9 +24,15 @@ const WhatsAppIcon = ({ size = 18, className = "" }: { size?: number; className?
 const Navbar = () => (
   <nav className="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-end py-6 px-6 md:px-12 text-white">
     <div className="flex items-center space-x-8">
-      <Instagram size={18} className="cursor-pointer text-[#E1306C] hover:brightness-125 transition-all" />
-      <WhatsAppIcon size={18} className="cursor-pointer text-[#25D366] hover:brightness-125 transition-all" />
-      <Mail size={18} className="cursor-pointer text-[#EA4335] hover:brightness-125 transition-all" />
+      <a href="https://www.instagram.com/aurora_services25/" target="_blank" rel="noopener noreferrer" className="text-[#E1306C] hover:text-[#FF007F] transition-colors">
+        <Instagram size={18} />
+      </a>
+      <a href="https://wa.me/5492665139985" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:text-[#FF007F] transition-colors">
+        <WhatsAppIcon size={18} />
+      </a>
+      <a href="mailto:auroraserviceem@gmail.com" className="text-[#EA4335] hover:text-[#FF007F] transition-colors">
+        <Mail size={18} />
+      </a>
     </div>
   </nav>
 );
@@ -497,18 +503,20 @@ const ContactSection = () => {
             WhatsApp: +54 9 2665-139985
           </a>
           <a 
-            href="#" 
-            className="flex items-center gap-3 px-8 py-4 rounded-full instagram-gradient text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-lg shadow-doodles-pink/20"
+            href="https://www.instagram.com/aurora_services25/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-8 py-4 rounded-full instagram-gradient text-white font-black uppercase tracking-widest text-xs hover:scale-105 hover:text-[#FF007F] transition-all shadow-lg shadow-doodles-pink/20 no-underline"
           >
             <Instagram size={20} />
             Instagram
           </a>
           <a 
-            href="mailto:contacto@auroraweb.com.ar" 
-            className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#EA4335] text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-lg shadow-red-500/20"
+            href="mailto:auroraserviceem@gmail.com" 
+            className="flex items-center gap-3 px-8 py-4 rounded-full bg-[#EA4335] text-white font-black uppercase tracking-widest text-xs hover:scale-105 hover:text-[#FF007F] transition-all shadow-lg shadow-red-500/20 no-underline"
           >
             <Mail size={20} />
-            contacto@auroraweb.com.ar
+            auroraserviceem@gmail.com
           </a>
         </div>
       </div>
@@ -612,9 +620,15 @@ export default function App() {
       <footer className="py-16 px-6 md:px-12 bg-[#0a0a0a] text-white flex flex-col items-center gap-8 border-t border-white/5">
         <div className="text-2xl font-black font-display tracking-[-0.08em] inline-block border-b-2 border-doodles-pink pb-0.5 px-0">AURORA</div>
         <div className="flex items-center space-x-6">
-          <Instagram size={18} className="text-[#E1306C] hover:brightness-125 transition-all cursor-pointer" />
-          <WhatsAppIcon size={18} className="text-[#25D366] hover:brightness-125 transition-all cursor-pointer" />
-          <Mail size={18} className="text-[#EA4335] hover:brightness-125 transition-all cursor-pointer" />
+          <a href="https://www.instagram.com/aurora_services25/" target="_blank" rel="noopener noreferrer" className="text-[#E1306C] hover:text-[#FF007F] transition-colors">
+            <Instagram size={18} />
+          </a>
+          <a href="https://wa.me/5492665139985" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:text-[#FF007F] transition-colors">
+            <WhatsAppIcon size={18} />
+          </a>
+          <a href="mailto:auroraserviceem@gmail.com" className="text-[#EA4335] hover:text-[#FF007F] transition-colors">
+            <Mail size={18} />
+          </a>
         </div>
         <div className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mt-4 text-center">
           © 2025 · Argentina · México · Ecuador · Perú
