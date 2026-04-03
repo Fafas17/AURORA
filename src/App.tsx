@@ -541,62 +541,76 @@ const ServicesFooter = () => (
   </section>
 );
 
-const FloatingNav = () => {
-  const [activeSection, setActiveSection] = useState("hero");
-  const sections = [
-    { id: "hero", label: "Inicio" },
-    { id: "nosotros", label: "Historia" },
-    { id: "precios", label: "Planes" },
-    { id: "requirements", label: "Material" },
-    { id: "process", label: "Cómo trabajamos" },
-    { id: "contacto", label: "Contacto" },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 300;
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section.id);
+const ArrowNav = () => {
+  const sections = ["hero", "nosotros", "precios", "requirements", "process", "contacto"];
+  
+  const scrollToNext = () => {
+    const scrollPosition = window.scrollY + 100;
+    let nextSectionId = sections[0];
+    
+    for (let i = 0; i < sections.length; i++) {
+      const element = document.getElementById(sections[i]);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        // If we are currently in this section
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (i < sections.length - 1) {
+            nextSectionId = sections[i + 1];
+          } else {
+            nextSectionId = sections[i];
           }
+          break;
         }
       }
-    };
+    }
+    
+    const nextElement = document.getElementById(nextSectionId);
+    if (nextElement) {
+      nextElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const scrollToPrev = () => {
+    const scrollPosition = window.scrollY + 100;
+    let prevSectionId = sections[0];
+    
+    for (let i = 0; i < sections.length; i++) {
+      const element = document.getElementById(sections[i]);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (i > 0) {
+            prevSectionId = sections[i - 1];
+          } else {
+            prevSectionId = sections[0];
+          }
+          break;
+        }
+      }
+    }
+    
+    const prevElement = document.getElementById(prevSectionId);
+    if (prevElement) {
+      prevElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col gap-6">
-      {sections.map((section) => (
-        <button
-          key={section.id}
-          onClick={() => scrollTo(section.id)}
-          className="group relative flex items-center justify-end"
-        >
-          <span className="absolute right-10 px-3 py-1.5 rounded-lg bg-black/90 text-white text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0 whitespace-nowrap pointer-events-none border border-white/10">
-            {section.label}
-          </span>
-          <div
-            className={`w-3 h-3 rounded-full transition-all duration-500 border-2 ${
-              activeSection === section.id
-                ? "bg-doodles-pink border-doodles-pink scale-125 shadow-[0_0_15px_rgba(255,0,127,0.8)]"
-                : "bg-transparent border-doodles-pink/40 hover:border-doodles-pink"
-            }`}
-          />
-        </button>
-      ))}
+    <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+      <button 
+        onClick={scrollToPrev}
+        className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
+        aria-label="Subir"
+      >
+        <ArrowUp size={32} strokeWidth={3} />
+      </button>
+      <button 
+        onClick={scrollToNext}
+        className="text-doodles-pink hover:scale-125 transition-transform cursor-pointer"
+        aria-label="Bajar"
+      >
+        <ArrowDown size={32} strokeWidth={3} />
+      </button>
     </div>
   );
 };
@@ -604,7 +618,7 @@ const FloatingNav = () => {
 export default function App() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden max-w-full">
-      <FloatingNav />
+      <ArrowNav />
       <Navbar />
       <Hero />
       <AboutSection />
