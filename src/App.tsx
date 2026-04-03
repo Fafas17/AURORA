@@ -45,7 +45,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="hero-title break-words px-4"
+        className="hero-title inline-block border-b-4 border-doodles-pink pb-1 px-0 mb-8"
       >
         AURORA SERVICES
       </motion.h1>
@@ -53,7 +53,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="hero-description"
+        className="hero-description px-4"
       >
         Transformamos tu visión en una web de alto nivel, con diseño profesional y elegancia, donde cada detalle refleja la calidad que tu esencia merece.
       </motion.p>
@@ -103,7 +103,7 @@ const AboutSection = () => (
   <section id="nosotros" className="py-24 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
       <div className="flex flex-col justify-center text-center md:text-left">
-        <h2 className="text-3xl md:text-4xl font-black mb-8 font-display tracking-[-0.05em] leading-tight uppercase break-words">AURORA SERVICES</h2>
+        <h2 className="text-3xl md:text-4xl font-black mb-8 font-display tracking-[-0.05em] leading-tight uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 self-center md:self-start">AURORA SERVICES</h2>
         <p className="about-text text-lg md:text-xl text-gray-300 max-w-xl font-medium mx-auto md:mx-0">
           Aurora Services nació en Argentina para llevar el desarrollo web de alto nivel más allá de las fronteras. Con presencia en Argentina, México, Ecuador y Perú, nuestro equipo combina talento y perseverancia, transformando cada proyecto en una experiencia digital única donde la tecnología y la calidez se encuentran para impulsar tu éxito.
         </p>
@@ -182,11 +182,11 @@ const PricingSection = () => {
       title: "MANTENIMIENTO — Servicio mensual",
       isMaintenance: true,
       prices: [
-        { label: "Landing", price: "$50.000 ARS / 35 USD" },
-        { label: "Multipágina", price: "$90.000 ARS / 65 USD" },
-        { label: "E-commerce", price: "$150.000 ARS / 105 USD" },
-        { label: "Gestión", price: "$130.000 ARS / 92 USD" },
-        { label: "Stock", price: "$140.000 / 100 USD" }
+        { label: "Landing", price: "$50.000 ARS / $35 USD" },
+        { label: "Multipágina", price: "$90.000 ARS / $65 USD" },
+        { label: "E-commerce", price: "$150.000 ARS / $105 USD" },
+        { label: "Gestión", price: "$130.000 ARS / $92 USD" },
+        { label: "Stock", price: "$140.000 ARS / $100 USD" }
       ],
       includes: ["Actualizaciones periódicas", "Copias de seguridad", "Seguridad y protección", "Correcciones de errores", "Soporte técnico", "4 horas de consultas a la semana"],
       quote: "Tu presencia digital merece atención constante. Con nuestro plan mensual garantizamos que tu sitio web siempre refleje la calidad y profesionalismo que tu marca merece.",
@@ -197,7 +197,7 @@ const PricingSection = () => {
 
   return (
     <section id="precios" className="py-24 px-6 md:px-12 bg-white min-h-[800px] flex flex-col items-center overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-black mb-12 md:mb-16 font-display tracking-tight text-center break-words px-4">PLANES Y PRECIOS</h2>
+      <h2 className="text-3xl md:text-4xl font-black mb-12 md:mb-16 font-display tracking-tight text-center break-words px-0 inline-block border-b-4 border-doodles-pink pb-1 mx-auto">PLANES Y PRECIOS</h2>
       
       <div className="w-full max-w-5xl mx-auto px-2 md:px-0">
         {/* Tabs Selector */}
@@ -368,8 +368,8 @@ const RequirementsSection = () => {
 
   return (
     <section id="requirements" className="py-20 px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black mb-16 font-display tracking-tight text-center uppercase break-words">Material necesario</h2>
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-black mb-16 font-display tracking-tight text-center uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 mx-auto">Material necesario</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {items.map((item, i) => (
             <motion.div
@@ -430,8 +430,8 @@ const ProcessSection = () => {
 
   return (
     <section id="process" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-black mb-16 md:mb-20 font-display tracking-tight text-center uppercase break-words">¿Cómo Trabajamos?</h2>
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-5xl font-black mb-16 md:mb-20 font-display tracking-tight text-center uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 mx-auto">¿Cómo Trabajamos?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {steps.map((step, i) => (
             <motion.div
@@ -471,7 +471,7 @@ const ContactSection = () => {
     <section id="contacto" className="py-[100px] px-6 md:px-12 bg-[#0a0a0a] text-white overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-6 font-display tracking-tight uppercase break-words">Contacto</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 font-display tracking-tight uppercase break-words inline-block border-b-4 border-doodles-pink pb-1 px-0 mx-auto">Contacto</h2>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed px-4">
             ¿Tenés un proyecto en mente? Contanos tu idea y juntos la convertimos en una experiencia digital de alto nivel.
           </p>
@@ -520,19 +520,19 @@ const ServicesFooter = () => (
   <section id="servicios" className="py-24 px-6 md:px-12 bg-gray-50 border-t border-gray-100 overflow-hidden">
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
       <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-black uppercase tracking-tight font-display">Desarrollo Web</h3>
+        <h3 className="text-xl font-black uppercase tracking-tight font-display inline-block border-b-2 border-doodles-pink pb-0.5 px-0 mx-auto md:mx-0 self-center md:self-start">Desarrollo Web</h3>
         <p className="text-gray-500 leading-relaxed text-sm">
           Creamos sitios web modernos, rápidos y optimizados para todos los dispositivos. Una arquitectura sólida pensada para atraer clientes y convertir visitas en resultados reales.
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-black uppercase tracking-tight font-display">Diseño Visual</h3>
+        <h3 className="text-xl font-black uppercase tracking-tight font-display inline-block border-b-2 border-doodles-pink pb-0.5 px-0 mx-auto md:mx-0 self-center md:self-start">Diseño Visual</h3>
         <p className="text-gray-500 leading-relaxed text-sm">
           Diseñamos experiencias visuales únicas que capturan la esencia de tu marca. Estética premium y minimalista para transmitir confianza y profesionalismo desde el primer segundo.
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <h3 className="text-xl font-black uppercase tracking-tight font-display">Soporte</h3>
+        <h3 className="text-xl font-black uppercase tracking-tight font-display inline-block border-b-2 border-doodles-pink pb-0.5 px-0 mx-auto md:mx-0 self-center md:self-start">Soporte</h3>
         <p className="text-gray-500 leading-relaxed text-sm">
           Tu sitio web necesita atención constante. Ofrecemos mantenimiento proactivo, actualizaciones de seguridad y soporte técnico para garantizar una presencia digital impecable.
         </p>
@@ -615,7 +615,7 @@ export default function App() {
       <ServicesFooter />
       
       <footer className="py-16 px-6 md:px-12 bg-[#0a0a0a] text-white flex flex-col items-center gap-8 border-t border-white/5">
-        <div className="text-2xl font-black font-display tracking-[-0.08em]">AURORA</div>
+        <div className="text-2xl font-black font-display tracking-[-0.08em] inline-block border-b-2 border-doodles-pink pb-0.5 px-0">AURORA</div>
         <div className="flex items-center space-x-6">
           <Instagram size={18} className="text-[#E1306C] hover:brightness-125 transition-all cursor-pointer" />
           <WhatsAppIcon size={18} className="text-[#25D366] hover:brightness-125 transition-all cursor-pointer" />
