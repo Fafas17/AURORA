@@ -46,60 +46,76 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="hero-section overflow-hidden">
-      <motion.h1 
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="hero-title inline-block border-b-4 border-doodles-pink pb-1 px-0 mb-8"
-      >
-        AURORA SERVICES
-      </motion.h1>
-      <motion.p 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
-        className="hero-description px-4"
-      >
-        Transformamos tu visión en una web de alto nivel, con diseño profesional y elegancia, donde cada detalle refleja la calidad que tu esencia merece.
-      </motion.p>
-      <div className="flex flex-wrap justify-center gap-[15px]">
-        <motion.button 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4 }}
-          className="hero-button"
-          onClick={() => scrollTo('contacto')}
+    <section 
+      id="hero" 
+      className="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col justify-center items-center overflow-hidden px-4"
+      style={{ backgroundImage: "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2560&auto=format&fit=crop')" }}
+    >
+      <div className="flex flex-col items-center gap-y-8 w-full max-w-7xl">
+        <div className="inline-flex flex-col items-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="hero-title text-center uppercase tracking-widest px-0"
+          >
+            AURORA SERVICES
+          </motion.h1>
+          <motion.div 
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="h-[3px] bg-[#FF007F] w-full mt-2 origin-center"
+          />
+        </div>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="hero-description text-center max-w-2xl mx-auto px-4 mb-0"
         >
-          Contáctanos
-        </motion.button>
-        <motion.button 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5 }}
-          className="hero-button"
-          onClick={() => scrollTo('servicios-final')}
-        >
-          Ver Servicios
-        </motion.button>
-        <motion.button 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
-          className="hero-button"
-          onClick={() => scrollTo('precios')}
-        >
-          Ver Precios
-        </motion.button>
-        <motion.button 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.7 }}
-          className="hero-button"
-          onClick={() => scrollTo('mision')}
-        >
-          Quiénes Somos
-        </motion.button>
+          Transformamos tu visión en una web de alto nivel, con diseño profesional y elegancia, donde cada detalle refleja la calidad que tu esencia merece.
+        </motion.p>
+
+        <div className="flex flex-wrap justify-center gap-[15px] w-full">
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="hero-button"
+            onClick={() => scrollTo('contacto')}
+          >
+            Contáctanos
+          </motion.button>
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+            className="hero-button"
+            onClick={() => scrollTo('servicios-final')}
+          >
+            Ver Servicios
+          </motion.button>
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6 }}
+            className="hero-button"
+            onClick={() => scrollTo('precios')}
+          >
+            Ver Precios
+          </motion.button>
+          <motion.button 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7 }}
+            className="hero-button"
+            onClick={() => scrollTo('mision')}
+          >
+            Quiénes Somos
+          </motion.button>
+        </div>
       </div>
     </section>
   );
