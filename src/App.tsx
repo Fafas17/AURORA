@@ -623,16 +623,18 @@ const ArrowNav = () => {
 
 export default function App() {
   useEffect(() => {
-    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement || document.createElement('link');
-    link.type = 'image/png';
-    link.rel = 'icon';
-    link.href = faviconLogo;
-    document.getElementsByTagName('head')[0].appendChild(link);
-    
-    const appleLink = document.querySelector("link[rel~='apple-touch-icon']") as HTMLLinkElement || document.createElement('link');
-    appleLink.rel = 'apple-touch-icon';
-    appleLink.href = faviconLogo;
-    document.getElementsByTagName('head')[0].appendChild(appleLink);
+    if (typeof window !== 'undefined') {
+      const link = (document.querySelector("link[rel~='icon']") as HTMLLinkElement) || document.createElement('link');
+      link.type = 'image/png';
+      link.rel = 'icon';
+      link.href = faviconLogo;
+      document.getElementsByTagName('head')[0].appendChild(link);
+
+      const appleLink = (document.querySelector("link[rel~='apple-touch-icon']") as HTMLLinkElement) || document.createElement('link');
+      appleLink.rel = 'apple-touch-icon';
+      appleLink.href = faviconLogo;
+      document.getElementsByTagName('head')[0].appendChild(appleLink);
+    }
   }, []);
 
   return (
