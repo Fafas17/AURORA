@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Instagram, Mail, Check, Monitor, Folder, Settings, Wrench, Camera, Palette, FileText, Sparkles, Smartphone, MessageCircle, MapPin, Lightbulb, Search, DollarSign, Rocket, ShieldCheck, Code, ArrowUp, ArrowDown } from "lucide-react";
 import "./App.css";
+import faviconLogo from './assets/logo-aurora.png';
 
 const WhatsAppIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
@@ -621,6 +622,19 @@ const ArrowNav = () => {
 };
 
 export default function App() {
+  useEffect(() => {
+    const link = document.querySelector("link[rel~='icon']") as HTMLLinkElement || document.createElement('link');
+    link.type = 'image/png';
+    link.rel = 'icon';
+    link.href = faviconLogo;
+    document.getElementsByTagName('head')[0].appendChild(link);
+    
+    const appleLink = document.querySelector("link[rel~='apple-touch-icon']") as HTMLLinkElement || document.createElement('link');
+    appleLink.rel = 'apple-touch-icon';
+    appleLink.href = faviconLogo;
+    document.getElementsByTagName('head')[0].appendChild(appleLink);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden max-w-full">
       <ArrowNav />
